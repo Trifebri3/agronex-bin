@@ -13,5 +13,7 @@ class WaterData extends Model
         'ph',
         'tds',
         'turbidity',
+        'latitude',
+        'longitude',
     ];
 }

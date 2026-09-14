@@ -16,5 +16,7 @@ class SoilData extends Model
         'nitrogen',
         'fosfor',
         'kalium',
+        'latitude',
+        'longitude',
     ];
 }

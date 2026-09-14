@@ -17,5 +17,7 @@ class WeatherData extends Model
         'curah_hujan',
         'dew_point',
         'et0',
+        'latitude',
+        'longitude',
     ];
 }

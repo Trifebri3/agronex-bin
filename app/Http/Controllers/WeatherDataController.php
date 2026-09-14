@@ -20,7 +20,13 @@ class WeatherDataController extends Controller
             'et0' => 'required|numeric',
         ]);
 
-        $data = WeatherData::create($validated);
+        $lat = \App\Models\Setting::where('key', 'sensor_latitude')->value('value') ?? '-6.914744'; 
+        $lng = \App\Models\Setting::where('key', 'sensor_longitude')->value('value') ?? '107.609810';
+
+        $data = WeatherData::create(array_merge($validated, [
+            'latitude' => $lat,
+            'longitude' => $lng,
+        ]));
 
         return response()->json([
             'success' => true,

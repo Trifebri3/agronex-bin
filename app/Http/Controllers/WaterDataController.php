@@ -16,7 +16,13 @@ class WaterDataController extends Controller
             'turbidity' => 'required|numeric',
         ]);
 
-        $data = WaterData::create($validated);
+        $lat = \App\Models\Setting::where('key', 'sensor_latitude')->value('value') ?? '-6.914744'; 
+        $lng = \App\Models\Setting::where('key', 'sensor_longitude')->value('value') ?? '107.609810';
+
+        $data = WaterData::create(array_merge($validated, [
+            'latitude' => $lat,
+            'longitude' => $lng,
+        ]));
 
         return response()->json([
             'success' => true,

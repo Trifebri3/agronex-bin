@@ -19,7 +19,13 @@ class SoilDataController extends Controller
             'kalium' => 'required|numeric',
         ]);
 
-        $data = SoilData::create($validated);
+        $lat = \App\Models\Setting::where('key', 'sensor_latitude')->value('value') ?? '-6.914744'; 
+        $lng = \App\Models\Setting::where('key', 'sensor_longitude')->value('value') ?? '107.609810';
+
+        $data = SoilData::create(array_merge($validated, [
+            'latitude' => $lat,
+            'longitude' => $lng
+        ]));
 
         return response()->json([
             'success' => true,

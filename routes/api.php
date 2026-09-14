@@ -48,3 +48,7 @@ Route::get('/weather-data/history', [WeatherDataController::class, 'history']);
 Route::get('/hub-status', [HubController::class, 'status']);
 Route::post('/simulate', [HubController::class, 'simulate']);
 Route::get('/simulate', [HubController::class, 'simulate']);
+use App\Http\Controllers\Api\IrrigationApiController;
+Route::get('/v1/devices/{device_id}/config', [IrrigationApiController::class, 'getConfig']);
+Route::post('/v1/devices/{device_id}/telemetry', [IrrigationApiController::class, 'postTelemetry']);
+Route::post('/v1/devices/{device_id}/events', [IrrigationApiController::class, 'postEvent']);
