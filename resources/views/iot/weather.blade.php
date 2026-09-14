@@ -19,10 +19,14 @@
     </div>
 
     @if($latest)
+        <div class="flex items-center justify-end mb-4">
+            @php
+                $isOffline = \Carbon\Carbon::parse($latest->created_at)->diffInMinutes(now()) > 60;
+                $isSensorError = false;
+                if($latest->suhu == 0 && $latest->kelembapan == 0) {
                     $isSensorError = true;
                 }
             @endphp
-
             @if($isOffline)
                 <span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded flex items-center gap-1">
                     <span class="w-2 h-2 rounded-full bg-red-500"></span> Offline
