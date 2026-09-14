@@ -163,3 +163,4 @@ Aplikasi akan langsung online di port `8000` dengan persistensi database SQLite 
 └── README.md
 ```
 # agronex-bin
+# agronex-bin
