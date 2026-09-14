@@ -103,39 +103,39 @@
     </div>
 
     <!-- Data Realtime Lengkap -->
-    <h3 class="font-bold text-slate-800 mb-3">Data Sensor Saat Ini</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+    <h3 class="font-bold text-slate-800 mb-3">Data Sensor Saat Ini <span class="text-[10px] text-emerald-600 font-normal ml-2 flex items-center inline-flex gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Live</span></h3>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="realtime-data-container">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Suhu</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->suhu }}<span class="text-xs text-slate-400 font-normal ml-1">°C</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-suhu">{{ $latest->suhu }}</span><span class="text-xs text-slate-400 font-normal ml-1">°C</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Kelembapan</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->kelembapan }}<span class="text-xs text-slate-400 font-normal ml-1">%</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-kelembapan">{{ $latest->kelembapan }}</span><span class="text-xs text-slate-400 font-normal ml-1">%</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Tekanan Udara</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->tekanan }}<span class="text-xs text-slate-400 font-normal ml-1">hPa</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-tekanan">{{ $latest->tekanan }}</span><span class="text-xs text-slate-400 font-normal ml-1">hPa</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Intensitas Cahaya</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->cahaya }}<span class="text-xs text-slate-400 font-normal ml-1">Lux</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-cahaya">{{ $latest->cahaya }}</span><span class="text-xs text-slate-400 font-normal ml-1">Lux</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Kecepatan Angin</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->kecepatan_angin }}<span class="text-xs text-slate-400 font-normal ml-1">m/s</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-kecepatan_angin">{{ $latest->kecepatan_angin }}</span><span class="text-xs text-slate-400 font-normal ml-1">m/s</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Curah Hujan</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->curah_hujan }}<span class="text-xs text-slate-400 font-normal ml-1">Pulse</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-curah_hujan">{{ $latest->curah_hujan }}</span><span class="text-xs text-slate-400 font-normal ml-1">Pulse</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Dew Point</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->dew_point }}<span class="text-xs text-slate-400 font-normal ml-1">°C</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-dew_point">{{ $latest->dew_point }}</span><span class="text-xs text-slate-400 font-normal ml-1">°C</span></div>
         </div>
-        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100">
+        <div class="bg-white p-4 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 transition-colors duration-300">
             <div class="text-xs text-slate-500 font-semibold mb-1">Evapotranspirasi</div>
-            <div class="text-xl font-bold text-slate-800">{{ $latest->et0 }}<span class="text-xs text-slate-400 font-normal ml-1">mm/d</span></div>
+            <div class="text-xl font-bold text-slate-800"><span id="rt-et0">{{ $latest->et0 }}</span><span class="text-xs text-slate-400 font-normal ml-1">mm/d</span></div>
         </div>
     </div>
 
@@ -245,6 +245,40 @@
             }
         }
     });
+</script>
+
+<script>
+    // Realtime Data Polling
+    setInterval(function() {
+        fetch('/api/weather-data/latest')
+            .then(response => response.json())
+            .then(result => {
+                if(result.success && result.data) {
+                    const data = result.data;
+                    
+                    // Highlight effect helper
+                    const updateWithHighlight = (id, newValue) => {
+                        const el = document.getElementById(id);
+                        if(el && el.innerText != newValue) {
+                            el.innerText = newValue;
+                            const card = el.closest('div.bg-white');
+                            card.classList.add('bg-emerald-50');
+                            setTimeout(() => card.classList.remove('bg-emerald-50'), 1000);
+                        }
+                    };
+
+                    updateWithHighlight('rt-suhu', data.suhu);
+                    updateWithHighlight('rt-kelembapan', data.kelembapan);
+                    updateWithHighlight('rt-tekanan', data.tekanan);
+                    updateWithHighlight('rt-cahaya', data.cahaya);
+                    updateWithHighlight('rt-kecepatan_angin', data.kecepatan_angin);
+                    updateWithHighlight('rt-curah_hujan', data.curah_hujan);
+                    updateWithHighlight('rt-dew_point', data.dew_point);
+                    updateWithHighlight('rt-et0', data.et0);
+                }
+            })
+            .catch(error => console.error("Error fetching realtime data:", error));
+    }, 5000); // Poll every 5 seconds
 </script>
 @endif
 @endpush
